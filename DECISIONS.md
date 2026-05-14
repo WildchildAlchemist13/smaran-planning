@@ -108,6 +108,24 @@
 
 ---
 
+## D14. 2-day MVP to internal testing track (full launch still 5 weeks)
+**Date**: 2026-05-15
+**Context**: Rev wanted to ship in 2 days, not 5 weeks. Discussed trade-offs honestly. Rev chose: ship MVP to Play Store **internal testing track** (invite-only, doesn't burn public listing) within 2 days; full public launch still follows original 5-week BUILD_PLAN.md.
+**Decision**: Two-track approach.
+- **Track A (2 days)**: Bare MVP — daily darshan + verse + share + streak + onboarding + notifications. No AI, no payments, no audio, no real art. Ships to internal testing.
+- **Track B (5 weeks)**: Full public launch with art + AI + payments + audio per BUILD_PLAN.md.
+**MVP scope locked in MVP_PLAN.md.** Do not expand.
+**Why this is the right move**:
+- Rev gets the dopamine of shipping fast
+- Real device testing of notifications, streaks, share — all things that can break on real Androids
+- Public Play Store listing is NOT burned with a half-product
+- Tester feedback informs Week 1-5 decisions
+- Internal track = no Google review wait; live within minutes of upload
+**Risk**: testers see basic version. Mitigation: explicit "early access" framing in onboarding + home-screen note.
+**Status**: Day 1 build COMPLETE (storage, notifications, share, onboarding, real streak). Day 2 tomorrow: EAS build + Play Store internal listing + first 10 testers.
+
+---
+
 ## D13. Tech stack pivot: Flutter → Expo (React Native + TypeScript)
 **Date**: 2026-05-15
 **Context**: Original D4 decision was Flutter (matching assumed Reeloom Games stack). Rev confirmed they're using **Expo Go** for app development.

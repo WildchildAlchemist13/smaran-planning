@@ -5,7 +5,26 @@
 
 ---
 
-## 🔥 This Week (Week 0 — Pre-Build)
+## 🔥 NEXT 2 DAYS — MVP Sprint to Internal Testing Track
+
+> **D14 locked**: 2-day MVP, NOT public launch. Full public launch still 5 weeks per BUILD_PLAN.md.
+> See **MVP_PLAN.md** for full scope.
+
+### Day 2 (tomorrow) — Ship to Internal Testing
+- [ ] [P0] Run app on phone via Expo Go to verify Day 1 build works (10 min)
+- [ ] [P0] `npm install -g eas-cli` + `eas login` (5 min)
+- [ ] [P0] `eas build:configure` then `eas build --platform android --profile preview` (15-20 min wait)
+- [ ] [P0] Generate 4-6 Play Store screenshots from Rev's phone
+- [ ] [P0] Create app icon (1024×1024 — Smaran wordmark on indigo, gold border)
+- [ ] [P0] Write Play Store listing (short + long description, follow BRAND.md voice)
+- [ ] [P0] Create + host privacy policy + terms (template, e.g., termly.io or PrivacyPolicies.com)
+- [ ] [P0] Upload APK to Play Console internal testing track
+- [ ] [P0] Add 10-25 tester emails to Play Console internal track
+- [ ] [P0] Send testers the install link
+
+---
+
+## 🔧 Week 0 — Pre-Build (parallel content sourcing — continues)
 
 > **Build-first strategy locked**: ship to Play Store before any creator outreach. App speaks for itself.
 
@@ -71,3 +90,6 @@
 - [x] Daily morning standup + Friday weekly review automated via scheduled-tasks
 - [x] Stack pivot from Flutter to Expo (D13) — confirmed Expo Go is Rev's existing tooling
 - [x] **Smaran-app/ Expo scaffold initialized** — git repo, brand colors, deity-of-day logic, sample verses, daily darshan home screen, Ask Krishna placeholder. Runnable v0.1 ready.
+- [x] Both repos pushed to GitHub (smaran-app + smaran-planning, both private)
+- [x] **D14 locked: 2-day MVP to internal testing track**, full public launch still 5 weeks
+- [x] **MVP Day 1 BUILD COMPLETE** — storage layer, daily notifications, share, onboarding flow, real persistent streak counter, haptic feedback. All TypeScript clean.
