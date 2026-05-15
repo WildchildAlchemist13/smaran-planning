@@ -4,6 +4,105 @@
 
 ---
 
+## D20. No advertising in Smaran (banner / interstitial / video / network)
+**Date**: 2026-05-16
+**Context**: Rev asked whether ads were part of the monetization plan. Per existing decisions D2 + D15 + D18 + D19, the model is subs + lifetime IAP + transactional offerings + diaspora-tier pricing — no ad layer was ever planned. Worth locking as an explicit refusal so it can't drift in.
+**Decision**: Smaran will not run banner ads, interstitial ads, video ads, or any third-party ad network (AdMob, Meta Audience Network, AppLovin, Unity Ads, etc.) — ever, in any version, free or paid tier.
+**Why**:
+- **Brand-killing**: every aesthetic-neighbor app (Calm, Hallow, Stoic, Headspace, Aesop) runs zero ads. Sri Mandir + AstroSage do — they're the supermarket, we're the temple. Ads collapse the "restraint as reverence" positioning the moment a Mahindra ad sits next to *karmaṇy-evādhikāras te*.
+- **Yield is bad**: Indian Android devotional eCPMs are $0.30–1.50 per 1000 impressions. At every scale stage, subscription revenue out-earns ad revenue by 5–10×. Ads also depress premium conversion ("free works fine with ads, why pay?").
+- **Privacy regression**: PRIVACY_POLICY.md explicitly promises "no advertisements, no tracking, no third-party SDKs collecting data." This is the biggest unfair-advantage marketing line we have versus Sri Mandir. AdMob/Meta SDK breaks the promise the day it lands. Play Store data-safety form requires disclosure. Diaspora especially recoils.
+- **Tonal disaster risk**: an algorithmic ad network can't be controlled. A tampon ad next to a deity verse, a Muslim brand on a Hindu screen, a competitor's app served as an ad — any one of these is a viral 1-star-review screenshot waiting to happen.
+**Allowed alternative — curated sponsorships, never ad networks** (only post-v0.3, only with editorial control):
+- A Pichwai art house sponsors Janmashtami art (credited tastefully)
+- A Vedanta org sponsors a verse's commentary (attribution + pointer to their classes)
+- Devotional book publishers offer giveaways tied to specific verses
+These are partnerships, not impressions. Different shape, different feel.
+**Trade-offs accepted**: Free users contribute nothing direct. That's fine — they're top of funnel for premium conversion + viral share-loop, not an ad inventory pool.
+**Status**: Locked. If anyone (future Tara, future Rev, future engineer) ever proposes adding ads, this decision overrides — no exception without rewriting D20.
+
+---
+
+## D19. Diaspora pricing tier + diaspora store listing in V1
+**Date**: 2026-05-16
+**Context**: Desk research (see `RESEARCH_SYNTHESIS.md`) confirmed Sri Mandir's diaspora ARPU at ~$81 vs ~$7–9 in India — a ~10× gap. 20% of Sri Mandir usage is already diaspora, growing 15% QoQ. Supersedes D6's "diaspora in months 4–6" timing on the pricing dimension only.
+**Decision**: Build geofenced diaspora pricing into V1.
+- **India**: Premium ₹399/yr or ₹999 lifetime; Devotee ₹999/yr or ₹2,499 lifetime (unchanged).
+- **Diaspora (US/UK/AU/CA)**: Premium **$19.99/yr or $49.99 lifetime**; Devotee **$49.99/yr or $124.99 lifetime**.
+- Diaspora-targeted Play Store listing variant (different screenshots, English-only copy) in V1.
+**Why**:
+- Diaspora unit economics are the realistic path to $2–3k/month per the recalibrated revenue math.
+- Same product, geofenced pricing — minimal extra build cost via RevenueCat tier configuration.
+- D6's "marketing focus India-first" still holds; this is pricing/SKU, not creator outreach geography.
+**Trade-offs accepted**: Higher Razorpay/Stripe complexity for cross-border. RevenueCat layer absorbs most of it.
+**Status**: Locked. Updates D2 pricing tiers and D6 diaspora timing.
+
+---
+
+## D18. Hard paywall on depth; tighten free tier
+**Date**: 2026-05-16
+**Context**: Category conversion benchmarks (RevenueCat State of Subscription Apps 2025): freemium converts at 2–3%; hard-paywall apps at ~12%. Hallow (the Christian analog Smaran cites as aesthetic neighbor) paywalls 85% of content. Current Smaran free tier (image + 1-line verse + streak + share + 3 AI Q/mo) leaks the funnel.
+**Decision**: Re-architect the tier wall.
+- **Free**: Daily darshan image. One-line verse preview. Streak. Share. **One Ask Krishna question per week** (down from 3/month).
+- **Premium**: Everything else — full commentary, audio, journal, festival packs, 5 AI Q/day.
+- **Devotee**: 20 AI Q/day + voice mode + early access.
+**Why**:
+- Hard paywall on depth (commentary, audio, AI) drives ~4–6× higher conversion at category benchmarks.
+- Breadth-free / depth-paid is the Hallow / Calm / Stoic pattern and reads premium not stingy.
+- Aligns with the "temple, not supermarket" positioning — the deep act of sitting with a verse is where the product earns money.
+**Trade-offs accepted**: Some users will bounce at the tighter free limit. That's fine — the goal is paying users, not vanity DAU.
+**Status**: Locked. Supersedes free-tier limits in D2.
+
+---
+
+## D17. Rebrand the "Ask Krishna" feature
+**Date**: 2026-05-16
+**Context**: "Ask Krishna AI - Bhagavad Gita" is already a Play Store app. "GitaGPT," "Ask Swamiji" (JKYog), and "Bhagavad Gita Community AI" are also live. The 2023 Rest of World / CBC / Quint investigation tied "Gita chatbot" branding to documented safety failures (violence approval, political bias). Smaran's current feature name is both undifferentiated and brand-adjacent to the public failure narrative.
+**Decision**: Rebrand the AI feature before public launch. Final name to be selected via primary research (interview Q21 + survey G2) from candidates: *Smaran Reflection* / *Gita Companion* / *Sit with Krishna* / *Ask the Gita* / *Krishna's Counsel*.
+**Why**:
+- Differentiation from a crowded, branded-failed category.
+- A reverent name that does not promise to *be* Krishna — protects against the "voice of god" criticism.
+- Sub-brand inside the Smaran umbrella reads as premium product, not generic AI wrapper.
+**Trade-offs accepted**: Internal docs and the current Smaran-app placeholder screen carry the old name; replace as part of V1 build.
+**Status**: Locked. Final name pending primary research (Week 3).
+
+---
+
+## D16. Ask Krishna AI safety architecture is launch-blocking
+**Date**: 2026-05-16
+**Context**: 2023 Rest of World investigation (corroborated by CBC News and The Quint) documented Indian Gita chatbots condoning violence ("acceptable to kill if it is one's dharma"), showing political bias (praising Modi while criticizing Gandhi), and reproducing casteist and misogynist framings. Promotes RISKS R1 from "open" to "existential confirmed." See `RESEARCH_SYNTHESIS.md` for sourcing.
+**Decision**: Safety architecture is a hard launch-blocker. The AI feature does not ship without all of the following:
+1. **Scoped retrieval** — RAG over a curated Vedanta-aligned canon only (Gita with scholar-reviewed commentaries: Vivekananda / Chinmaya / Easwaran-equivalent original commission). No general-knowledge fallback.
+2. **System-prompt refusal rules** — refuses political questions, caste-based framings, justifications of violence, predictions of the future, medical/legal advice, sectarian comparisons.
+3. **Citation-only outputs** — every response cites a specific Gita verse. Refuses if no citation is appropriate.
+4. **Conservative tone prompt** — speaks *from* the text, never *as* the deity. "What the Gita teaches in this verse is..." not "Krishna says to you..."
+5. **Scholar review of refusal rules + first 1,000 production responses** before broader rollout.
+6. **About-screen safety statement** — publicly state how Smaran's AI is built differently than the failed Gita chatbots. Turn the risk into positioning.
+**Why**:
+- Failure mode is brand-killing. One viral screenshot of Smaran approving violence ends the product.
+- The same architecture is also a marketing wedge — "the safe Gita AI" is a defensible category.
+**Trade-offs accepted**: Slower build than a thin GPT wrapper. Higher scholar cost. Both are correct.
+**Status**: Locked. Becomes Week 0 P0 task and a Gate 3 condition in `BUILD_PLAN.md`.
+
+---
+
+## D15. Transactional layer in V1 (sub + transactional + diaspora premium)
+**Date**: 2026-05-16
+**Context**: `RESEARCH_SYNTHESIS.md` finding: the category leader (Sri Mandir, ~$12M ARR) monetizes via commissions on temple services (e-puja, chadhava), not subscriptions. Take rate 20–25%. A sub-only Smaran fights category gravity; the $2–3k/month math works on a three-stream model.
+**Decision**: Add a transactional layer to V1 alongside the subscription tiers from D2.
+- **Light a virtual diya** for someone — ₹51 / $1.99
+- **Sponsor a verse's audio recording in your name** — ₹101 / $3.99
+- **Send a personalized deity-of-day blessing** to a friend's WhatsApp — ₹21 / $0.99
+Final price points + acceptance tested in primary research (interview Q25 + survey F7); ship the highest-acceptance two transactions in V1, defer others.
+**Why**:
+- Matches proven category monetization pattern.
+- Acts as the WhatsApp share-loop monetization endpoint (the existing viral mechanic now also carries a paid SKU).
+- Repeat-engagement revenue (category norm: 80% of devotional revenue) without subscription friction.
+**Trade-offs accepted**: Brand risk — transactional layer could read as "Sri Mandir lite" if executed without restraint. Mitigation: visual + copy restraint, no pop-ups, framed as "offering" not "purchase."
+**Status**: Locked pending primary-research acceptance signal on the specific SKUs.
+
+---
+
 ## D1. Concept locked: Daily Darshan + Gita + Ask Krishna premium
 **Date**: 2026-05-14
 **Context**: Started exploring micro-SaaS ideas → driving instructor app → Cal AI clone → Bhagavad Gita Daily → "Hallow analog" → Daily Darshan (Bhavesh insight) → unified product.
@@ -32,6 +131,8 @@
 - Lifetime tier is critical for India (Indians distrust monthly subs)
 - Daily limits cap AI cost exposure at predictable maximum
 - Three tiers covers free, normal, power user
+
+**Amended 2026-05-16**: Free-tier AI limit tightened to 1 Q/week per D18 (was 3/month). Diaspora-premium SKUs added per D19 ($19.99/yr · $49.99 lifetime).
 
 ---
 
@@ -84,6 +185,8 @@
 - Razorpay is India-optimized
 - Indian content creators (Bhavesh + others) are the launch lever
 - Diaspora has higher WTP but smaller numbers; better as expansion play after PMF proven
+
+**Amended 2026-05-16**: Diaspora *pricing tier* + diaspora-targeted Play Store listing now in V1 per D19. Marketing focus and creator outreach still India-first; this amendment is about SKU + store presence, not channel strategy.
 
 ---
 

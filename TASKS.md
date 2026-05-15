@@ -5,6 +5,32 @@
 
 ---
 
+## 🔬 Post-research adjustments (locked 2026-05-16)
+
+> Synthesis-driven from `RESEARCH_SYNTHESIS.md`. See `DECISIONS.md` D15–D19 for the locked calls.
+
+### Pre-build (parallel to MVP ship + Week 0)
+- [ ] [P0] Draft Ask Krishna safety architecture v0 — refusal rules + scoped-retrieval canon list + system prompt — Tara drafts, Rev + scholar review (D16)
+- [ ] [P0] Scholar review of refusal rules + 50-prompt eval set — Rev sources scholar; budget ₹15-25k for review pass (D16)
+- [ ] [P0] AI feature rebrand: shortlist 5 candidate names (Smaran Reflection / Gita Companion / Sit with Krishna / Ask the Gita / Krishna's Counsel) — Tara; lock final name post-survey W3 (D17)
+- [ ] [P0] Configure diaspora-premium SKUs in RevenueCat — Premium $19.99/yr · $49.99 lifetime, Devotee $49.99/yr · $124.99 lifetime — Rev (D19)
+- [ ] [P1] Diaspora-targeted Play Store listing variant — screenshots + English-only copy + USD prices — Tara drafts, Rev approves (D19)
+
+### V1 build (Week 1–3)
+- [ ] [P0] Tighten free-tier AI limit in code: 1 Q/week (was 3/month) — Engineer pod (D18)
+- [ ] [P0] Re-architect paywall: free = breadth (image + verse line + streak + share), paid = depth (commentary, audio, AI ≥ 2/week, journal) — Engineer pod (D18)
+- [ ] [P0] Transactional layer build — virtual diya ₹51 / $1.99 + personalized blessing share ₹21 / $0.99 — Engineer pod, Week 3 (D15)
+- [ ] [P0] About-screen public safety statement — Tara drafts; ships in V1 (D16)
+
+### Research execution (per RESEARCH_PLAN.md)
+- [ ] [P0] Pilot interview Friday W0 — Rev conducts
+- [ ] [P0] Survey launch Monday W1 (Tally) — Tara configures; Rev distributes via Cysters + IG + WhatsApp + Reddit + LinkedIn
+- [ ] [P0] Run 8 interviews by end of W1, 16-18 total by end of W2 — Rev
+- [ ] [P0] Synthesis report + decision memo delivered Monday W3 — Tara
+- [ ] [P1] Recruitment messages drafted for Reddit / IG / WhatsApp / Cysters / LinkedIn — Tara
+
+---
+
 ## 🔥 NEXT 2 DAYS — MVP Sprint to Internal Testing Track
 
 > **D14 locked**: 2-day MVP, NOT public launch. Full public launch still 5 weeks per BUILD_PLAN.md.

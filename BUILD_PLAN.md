@@ -1,4 +1,6 @@
-# Mandir — 5-Week Build Plan
+# Smaran — 5-Week Build Plan
+
+> **Updated 2026-05-16**: Synthesis from `RESEARCH_SYNTHESIS.md` reshaped Week 0, Week 2, and Week 3. New rows below carry an asterisk (*).
 
 > Day 0 = the day Rev commits to build. Adjust dates from there.
 > Each week ends with a **gate** — a hard go/no-go decision before continuing.
@@ -25,8 +27,11 @@
 | 5 | Sign artist + scholar contracts; commission **30 deity illustrations + 30 verses commentary** for launch | Rev |
 | 6 | Commission **Sanskrit reciter** for 30 launch verses (audio sample first) | Rev |
 | 7 | Open RevenueCat account, link Razorpay | Rev |
+| 1–7 | * **Safety architecture spike (D16)**: scholar-reviewed refusal rules, scoped-retrieval canon list, system-prompt v0 — pre-build blocker for Week 3 AI work | Rev + scholar + Tara |
+| 5–7 | * **AI feature rebrand (D17)**: shortlist 5 candidate names, include in interview/survey instruments | Tara |
+| 7 | * **RevenueCat diaspora SKUs (D19)**: configure $19.99/yr · $49.99 lifetime · Devotee $49.99/$124.99 alongside India tiers | Rev |
 
-**🛑 GATE 0 (end of Week 0)**: App name locked. Artist + scholar locked. Razorpay merchant approved. Play Console active. **DO NOT start Week 1 build until these are clear.**
+**🛑 GATE 0 (end of Week 0)**: App name locked. Artist + scholar locked. Razorpay merchant approved. Play Console active. **Safety architecture refusal rules drafted and scholar-reviewed.** Diaspora SKUs configured in RevenueCat. **DO NOT start Week 1 build until these are clear.**
 
 ---
 
@@ -70,8 +75,10 @@
 | 5 | "Send personalized blessing" — friend's name on today's image, share via WhatsApp | Image overlay generation |
 | 6 | Festival countdown banner (Diwali, Navratri, etc.) | Hardcoded festival calendar v1 |
 | 7 | Premium gating logic — paywall on commentary/audio/AI/HD | Feature flag system |
+| 7 | * **Hard-paywall architecture (D18)**: free tier = breadth only (image + verse line + streak + share + 1 AI Q/week); paywall on commentary, audio, AI ≥ 2/week, journal | Feature flag system |
+| 7 | * **Diaspora Play Store listing variant (D19)**: separate screenshots, English-only copy, USD pricing visible | Tara drafts, Rev approves |
 
-**🛑 GATE 2 (end of Week 2)**: All premium features functional in dev mode (paywall not yet enforced). Demo to 2 trusted friends.
+**🛑 GATE 2 (end of Week 2)**: All premium features functional in dev mode (paywall not yet enforced). Demo to 2 trusted friends. **Hard-paywall density validated against primary research synthesis (lands Monday W3).**
 
 ---
 
@@ -93,9 +100,13 @@
 | 5 | Razorpay one-time payment flow — Premium lifetime ₹999 | Razorpay orders API |
 | 6 | RevenueCat integration (wrapping Razorpay + future Google Play IAP) | RevenueCat SDK |
 | 6 | Devotee tier — ₹999/yr + ₹2,499 lifetime | Razorpay + RC |
-| 7 | End-to-end test: free → Ask Krishna 3 times → hit paywall → pay via Razorpay → unlock → ask 5 times | Real transaction with own card |
+| 7 | End-to-end test: free → Ask Krishna 1× (free weekly limit) → hit paywall → pay via Razorpay → unlock → ask 5× | Real transaction with own card |
+| 6 | * **Transactional layer build (D15)**: virtual diya ₹51 / $1.99 flow + personalized blessing share ₹21 / $0.99 flow | Razorpay one-time orders API |
+| 7 | * **Transactional layer test**: end-to-end purchase of virtual diya, confirmation screen, "offering" framing copy review | Real transaction |
+| 7 | * **Ask Krishna safety production gate**: scholar reviews 50-prompt eval set; refusal rate, citation rate, off-canon leakage all within tolerance | Tara + scholar |
+| 7 | * **About-screen safety statement live (D16)**: public language on how Smaran's AI is built differently | Tara drafts |
 
-**🛑 GATE 3 (end of Week 3)**: Successfully complete Razorpay payment + premium unlock + Ask Krishna response in production. **This is the riskiest gate — payment flow must work flawlessly.**
+**🛑 GATE 3 (end of Week 3)**: Successfully complete Razorpay payment + premium unlock + AI response in production. **Transactional layer ships at least one purchase flow live. Scholar signs off on safety-architecture eval set.** **This is the riskiest gate — payment + safety + transactional must all work flawlessly.**
 
 ---
 

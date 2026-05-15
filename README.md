@@ -14,22 +14,24 @@ A premium devotional + wisdom mobile app combining:
 
 ## The Tiers
 
-| Tier | Price | Ask Krishna | Other features |
-|---|---|---|---|
-| **Free** | ₹0 | 3 questions/month | Daily image + 1-line verse + streak + share |
-| **Premium** | ₹399/yr or ₹999 lifetime | 5 questions/day | Full commentary, audio, journal, themes, HD wallpapers |
-| **Devotee** | ₹999/yr or ₹2,499 lifetime | 20 questions/day + voice mode | All Premium + priority + exclusive art |
+| Tier | India | Diaspora (US/UK/AU/CA) | AI questions | Other features |
+|---|---|---|---|---|
+| **Free** | ₹0 | $0 | 1 question/week | Daily image + 1-line verse + streak + share |
+| **Premium** | ₹399/yr or ₹999 lifetime | $19.99/yr or $49.99 lifetime | 5 / day | Full commentary, audio, journal, themes, HD wallpapers |
+| **Devotee** | ₹999/yr or ₹2,499 lifetime | $49.99/yr or $124.99 lifetime | 20 / day + voice mode | All Premium + priority + exclusive art |
+
+Plus a **transactional layer** (per D15): light a virtual diya ₹51 / $1.99 · sponsor a verse's audio ₹101 / $3.99 · send a personalized deity-of-day blessing ₹21 / $0.99.
 
 ## Core Tech Decisions (locked)
 
-- **Frontend**: Flutter (Android-first, iOS later)
-- **Backend**: Supabase (Postgres + Auth + Storage)
-- **Subscriptions / Payments**: Razorpay (India-first, UPI + cards + lifetime IAP)
+- **Frontend**: Expo (React Native + TypeScript), Expo Router. Android-first, iOS later. *(D4 superseded by D13.)*
+- **Backend**: Supabase (Postgres + Auth + Storage + Edge Functions)
+- **Subscriptions / Payments**: Razorpay (India-first, UPI + cards + lifetime IAP) + diaspora-premium SKUs in RevenueCat
 - **Subscription management layer**: RevenueCat (handles Razorpay + later Apple/Google IAP)
-- **AI**: Claude Haiku 4.5 with prompt caching
-- **Audio**: Commissioned Sanskrit + English narration
+- **AI**: Claude Haiku 4.5 with prompt caching + scoped Vedanta-canon retrieval (per D16 safety architecture)
+- **Audio**: Sanskrit recitation by Rev's mother (D12); English narration commissioned
 - **Notifications**: Firebase Cloud Messaging
-- **Local DB / offline**: SQLite via Drift package
+- **Local DB / offline**: expo-sqlite
 
 ## Goal
 

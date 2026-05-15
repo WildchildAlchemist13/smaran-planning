@@ -1,4 +1,4 @@
-# Mandir — Risk Register
+# Smaran — Risk Register
 
 > Live document. Add risks as they emerge. Mark resolved with [RESOLVED] + date.
 
@@ -15,8 +15,9 @@
   - Manual review of first 1000 Ask Krishna responses
   - Donate % of revenue to a dharma org (also great PR)
   - Position as "stewards, not extractors" in all marketing
-- **Status**: Open — primary mitigation is scholar hire in Week 0
-- **Owner**: Rev
+- **Status**: ⚠️ **EXISTENTIAL CONFIRMED 2026-05-16** — Rest of World (2023), CBC News, and The Quint documented Indian Gita chatbots condoning violence ("acceptable to kill if it is one's dharma"), showing political bias, and reproducing casteist/misogynist framings. This risk is no longer hypothetical for the category. Smaran's mitigation is now codified in D16: scoped retrieval, refusal rules, citation-only outputs, scholar review of first 1,000 AI responses, public safety statement in About screen. Launch-blocking.
+- **Owner**: Rev (sponsor) + scholar (review)
+- **Sources**: see `RESEARCH_SYNTHESIS.md`
 
 ### R2. AI cost runaway
 - **Trigger**: Power users binge Ask Krishna; one viral abuse moment
@@ -53,7 +54,7 @@
   - Build cultural authenticity moat through art + scholarship that can't be copied quickly
   - Lock in users via journal data + saved favorites = high switching cost
   - Stay narrower and deeper than they can (they're a supermarket, we're a temple)
-- **Status**: Long-horizon; not urgent
+- **Status**: **Reshaped 2026-05-16** — Sri Mandir is a marketplace product (e-puja + chadhava commissions, $12M ARR). They are unlikely to pivot to a ritual-product wedge fast — different team DNA, different revenue model, different UX. 18-month runway on the daily-Gita-ritual category feels real per `RESEARCH_SYNTHESIS.md`. Watching, not urgent.
 
 ### R5. Older demographic struggles with sub payment
 - **Trigger**: Devotional users skew older; sub fatigue is real
@@ -81,7 +82,27 @@
   - Start KYC Day 1 of Week 0
   - Stripe as backup for international users
   - Test webhooks thoroughly in Week 3 gate
-- **Status**: Open — start KYC immediately
+- **Status**: [RESOLVED 2026-05-14] — D11 confirmed reuse of existing team Razorpay merchant account. KYC delay risk eliminated.
+
+### R16. "Ask Krishna" brand collision + GitaGPT failure adjacency
+- **Trigger**: "Ask Krishna AI - Bhagavad Gita" is already a Play Store app. "GitaGPT" and "Ask Swamiji" are established. The 2023 Rest of World / CBC investigations tied the "Gita chatbot" category to documented safety failures.
+- **Impact**: Smaran's premium positioning gets read as "another GitaGPT clone." The public failure narrative attaches to us by association. Differentiation collapses on the most valuable feature.
+- **Mitigation** (per D17):
+  - Rebrand the AI feature before public launch. Final name selected via primary research from a 5-candidate shortlist.
+  - Sub-brand under the Smaran umbrella ("Smaran Reflection," "Sit with Krishna," etc.) — not a generic AI label.
+  - Choose a name that does not promise to *be* Krishna (protects against "voice of god" critique).
+- **Status**: Open — final name pending primary research (Week 3 synthesis).
+- **Owner**: Tara
+
+### R17. Free tier too generous → conversion leak
+- **Trigger**: Current free-tier plan (image + 1-line verse + streak + share + 3 AI Q/month) delivers most of the daily-ritual value without payment.
+- **Impact**: Conversion at category freemium benchmark (2–3%) instead of hard-paywall benchmark (~12%). At target volumes, this is a 4–6× revenue gap.
+- **Mitigation** (per D18):
+  - Hard paywall on depth (commentary, audio, AI, journal). Free tier delivers breadth (the daily image + verse line + streak + share).
+  - Free Ask Krishna limit tightened to 1 question per week.
+  - Premium features visible but locked, with a calm "this is what you'd unlock" framing — not nag-pop-up UX.
+- **Status**: Open — to be built in code per D18; primary research validates the wall density.
+- **Owner**: Engineer pod (build); Tara (gate-density UX)
 
 ---
 
