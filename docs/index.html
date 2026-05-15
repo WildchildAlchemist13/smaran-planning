@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smaran — Legal</title>
+  <meta name="description" content="Legal documents for Smaran, a daily darshan and Bhagavad Gita app." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --indigo: #1A1B3A;
+      --indigo-soft: #25264a;
+      --gold: #C9A961;
+      --gold-soft: #d8bd7e;
+      --ivory: #F5EFE3;
+      --ivory-muted: rgba(245, 239, 227, 0.72);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--indigo);
+      color: var(--ivory);
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: 19px;
+      line-height: 1.7;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 28px 96px;
+      text-align: center;
+    }
+    .lamp {
+      font-size: 44px;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 56px;
+      letter-spacing: 0.5px;
+      margin: 12px 0 6px;
+      color: var(--ivory);
+    }
+    .sanskrit {
+      font-size: 28px;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin: 0 0 18px;
+    }
+    .tagline {
+      color: var(--ivory-muted);
+      font-style: italic;
+      font-size: 20px;
+      margin: 0 auto 56px;
+      max-width: 480px;
+    }
+    .divider {
+      width: 80px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+      border: none;
+      margin: 32px auto 48px;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    a.card {
+      display: block;
+      background: var(--indigo-soft);
+      color: var(--ivory);
+      text-decoration: none;
+      padding: 22px 28px;
+      border: 1px solid rgba(201, 169, 97, 0.35);
+      border-radius: 6px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      letter-spacing: 0.3px;
+    }
+    a.card:hover {
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+    a.card .label {
+      display: block;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    footer {
+      margin-top: 72px;
+      color: var(--ivory-muted);
+      font-size: 15px;
+      font-style: italic;
+    }
+    @media (max-width: 540px) {
+      h1 { font-size: 42px; }
+      .sanskrit { font-size: 24px; }
+      .container { padding: 56px 22px 72px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="lamp">&#x1FA94;</div>
+    <h1>Smaran</h1>
+    <p class="sanskrit">&#2360;&#2381;&#2350;&#2352;&#2339;</p>
+    <p class="tagline">A daily darshan and Bhagavad Gita companion.</p>
+    <hr class="divider" />
+    <div class="links">
+      <a class="card" href="./privacy.html">
+        <span class="label">Document</span>
+        Privacy Policy
+      </a>
+      <a class="card" href="./terms.html">
+        <span class="label">Document</span>
+        Terms of Service
+      </a>
+    </div>
+    <footer>Built with reverence. Operated with restraint.</footer>
+  </main>
+</body>
+</html>
